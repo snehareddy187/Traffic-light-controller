@@ -1,0 +1,21 @@
+module testbench();
+reg x,clk,rst;
+wire[1:0]hwy,cntry;
+trafffic uut (.x(x),.clk(clk),.rst(rst),.hwy(hwy),.cntry(cntry));
+initial
+begin
+ clk=0;
+ forever #5 clk=~clk;
+ end
+initial
+ begin
+ x=0;rst=1;
+ #20 rst=0;
+ #20 x=0;
+ #20 x=1;
+ #20 x=0;
+ #20 x=0;
+ #20 x=1;
+ #20 x=0;
+ end
+endmodule
